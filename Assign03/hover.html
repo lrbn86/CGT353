@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CGT 353 Assign03 Hover</title>
+  <style type="text/css">
+    div {
+      width: 150px;
+      height: 200px;
+      border: 1px solid #aaa;
+      text-align: center;
+      background-color: #eee;
+    }
+
+    div#wrapper {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 750px;
+      height: 490px;
+    }
+
+    div#th1 {
+      position: absolute;
+      top: 30px;
+      left: 30px;
+      background: url(images/1.jpg) no-repeat center;
+    }
+
+    div#th2 {
+      position: absolute;
+      top: 30px;
+      left: 210px;
+      background: url(images/2.jpg) no-repeat center;
+    }
+
+    div#th3 {
+      position: absolute;
+      top: 30px;
+      left: 390px;
+      background: url(images/3.jpg) no-repeat center;
+    }
+
+    div#th4 {
+      position: absolute;
+      top: 30px;
+      left: 570px;
+      background: url(images/4.jpg) no-repeat center;
+    }
+
+    div#th5 {
+      position: absolute;
+      top: 260px;
+      left: 30px;
+      background: url(images/5.jpg) no-repeat center;
+    }
+
+    div#th6 {
+      position: absolute;
+      top: 260px;
+      left: 210px;
+      background: url(images/6.jpg) no-repeat center;
+    }
+
+    div#th7 {
+      position: absolute;
+      top: 260px;
+      left: 390px;
+      background: url(images/7.jpg) no-repeat center;
+    }
+
+    div#th8 {
+      position: absolute;
+      top: 260px;
+      left: 570px;
+      background: url(images/8.jpg) no-repeat center;
+    }
+  </style>
+
+</head>
+
+<body>
+  <!-- Placeholders -->
+  <div id="wrapper">
+    <div id="th1"></div>
+    <div id="th2"></div>
+    <div id="th3"></div>
+    <div id="th4"></div>
+    <div id="th5"></div>
+    <div id="th6"></div>
+    <div id="th7"></div>
+    <div id="th8"></div>
+  </div>
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("div").css("border-radius", "10px");
+      // Set the current value of opacity to 60% initially
+      $("div[id!='wrapper']").animate({ "opacity": .6 }).hover(function () {
+        // Hover attaches event handler for two functions: mouseEnter, mouseLeave
+
+        // If mouse enters, then turn opacity to 100%
+        $(this).animate({ "opacity": 1 });
+      }, function () { // If mouse leaves, then turn opacity to 60%
+        $(this).animate({ "opacity": .6 });
+      })
+    });
+  </script>
+</body>
+
+</html>

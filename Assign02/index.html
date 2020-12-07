@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Intelligent Forms</title>
+  <link rel="stylesheet" href="css/styles.css" type="text/css"/>
+  <script type="text/javascript">
+    function updateProgress() {
+      const pb = document.getElementById('pb');
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const phone = document.getElementById('phone');
+      const date = document.getElementById('date');
+      const address = document.getElementById('address');
+      const postcode = document.getElementById('postcode');
+      const country = document.getElementById('country');
+      const cardNumber = document.getElementById('cardNumber');
+      const securityCode = document.getElementById('securityCode');
+      const nameOnCard = document.getElementById('nameOnCard');
+
+      let count = 0;
+
+      if ((name.value != 'Enter your full name') && (name.value != '')) count++;
+      if ((email.value != 'example@domain.com') && (email.value != '')) count++;
+      if ((phone.value != 'Example: 765-555-1234') && (phone.value != '')) count++;
+      if (date.value != '') count++;
+      if (address.value != '') count++;
+      if (postcode.value != '') count++;
+      if (country.value != '') count++;
+      if (cardNumber.value != '') count++;
+      if (securityCode.value != '') count++;
+      if (nameOnCard.value != '') count++;
+
+      const cardTypes = document.getElementsByTagName('cardtype');
+      
+      let flag = false;
+
+      for (cardType of cardTypes) {
+        if (cardType.checked) flag = true;
+      }
+
+      if (flag) {
+        count++;
+      }
+
+      pb.value = count;
+    }
+
+    function validateEmail(input) {
+      if (!input.value.includes('@')) {
+        msg = `Please include '@' in the email address. '${input.value}' is missing an '@'.`;
+        input.setCustomValidity(msg);
+      } else {
+        input.setCustomValidity('');
+      }
+    }
+
+  </script>
+</head>
+<body>
+  <h1>Payment Form</h1>
+  <div style="margin-left:190px;">
+    <span id="progress">Progress:</span>
+    <progress value="0" max="11" id="pb"></progress>
+    <br />
+    &nbsp;
+  </div>
+  <form id="payment" action="processForm.php" method="post">
+    <fieldset>
+      <legend>Personal Information</legend>
+      <ol>
+        <li>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Enter your full name" required="required" autofocus="autofocus" onChange="updateProgress();" />
+        </li>
+        <li>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="example@domain.com" required="required" onChange="updateProgress();" oninput="validateEmail(this);" />
+        </li>
+        <li>
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="Example: 765-555-1234" required="required" onChange="updateProgress();" />
+        </li>
+        <li>
+          <label for="date">Date</label>
+          <input id="date" name="date" type="date" required="required" onChange="updateProgress();" />
+        </li>
+      </ol>
+    </fieldset>
+    <fieldset>
+      <ol>
+        <li>
+          <label for="address">Address</label>
+          <textarea id="address" name="address" rows="5" required="required" onChange="updateProgress();"></textarea>
+        </li>
+        <li>
+          <label for="postcode">Zip Code</label>
+          <input id="postcode" name="postcode" type="text" required="required" onChange="updateProgress();" />
+        </li>
+        <li>
+          <label for="country">Country</label>
+          <input id="country" name="country" type="text" required="required" onChange="updateProgress();" />
+        </li>
+      </ol>
+    </fieldset>
+    <fieldset>
+      <legend>Payment Information</legend>
+      <ol>
+        <li>
+          <fieldset>
+            <legend>Card type</legend>
+            <ol>
+              <li>
+                <input id="visa" name="cardtype" type="radio" required="required" onChange="updateProgress();" />
+                <label for="visa">Visa</label>
+              </li>
+              <li>
+                <input id="discover" name="cardtype" type="radio" onChange="updateProgress();" />
+                <label for="discover">Discover</label>
+              </li>
+              <li>
+                <input id="mastercard" name="cardtype" type="radio" onChange="updateProgress();" />
+                <label for="mastercard">Mastercard</label>
+              </li>
+              <li>
+                <input id="amex" name="cardtype" type="radio" onChange="updateProgress();" />
+                <label for="amex">American Express</label>
+              </li>
+            </ol>
+          </fieldset>
+        </li>
+        <li>
+          <label for="cardNumber">Card number</label>
+          <input id="cardNumber" name="cardNumber" type="number" required="required" onChange="updateProgress();" />
+        </li>
+        <li>
+          <label for="securityCode">Security Code</label>
+          <input id="securityCode" name="securityCode" type="number" required="required" onChange="updateProgress();" />
+        </li>
+        <li>
+          <label for="nameOnCard">Name on card</label>
+          <input id="nameOnCard" name="nameOnCard" type="text" required="required" onChange="updateProgress();" />
+        </li>
+      </ol>
+    </fieldset>
+    <fieldset>
+      <button type="submit">Proceed</button>
+    </fieldset>
+  </form>
+</body>
+</html>
+

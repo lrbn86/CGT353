@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Fixed side bar</title>
+  <style type="text/css">
+    body {
+      background-color: #cca;
+    }
+    span {
+      font-family: Verdana, Geneva, sans-serif;
+      font-size: 12pt;
+      font-weight: bold;
+      padding: 9px;
+      margin-left: 15px;
+      float: left;
+    }
+    #contact {
+      position: absolute;
+      top: 150px;
+      left: -60px;
+      background-color: #F93;
+      opacity: .9;
+      width: 150px;
+      height: 35px;
+      margin: 0px;
+      border: 1px solid #000;
+    }
+    #contact.fixed {
+      position: fixed;
+      top: 150px;
+    }
+    .rotate {
+      /* Firefox */
+      -moz-transform: rotate(-90deg);
+      /* Chrome, Safari */
+      -webkit-transform: rotate(-90deg);
+      /* Microsoft */
+      -ms-transform: rotate(-90deg);
+      /* Opera */
+      -o-transform: rotate(-90deg);
+      /* Internet Explorer */
+      filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3)
+    }
+    #dropdown {
+      position: absolute;
+      top: -150px;
+      left: 350px;
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #000;
+    }
+    #dropdown.fixed {
+      position: fixed;
+    }
+  </style>
+  <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+
+  <div id="contact">
+    <span>Contact Us</span>
+  </div>
+
+  <div id="dropdown">
+    Place Ad Content Here<br/><br/>
+    Will you take our quick survey?<br/><br/>
+    <a href="#">Close</a>
+  </div>
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+      // Rotate the text
+      $("#contact").addClass("rotate");
+
+      // When the window scrolls, prevent the contact div from scrolling
+      $(window).scroll(function(event) {
+        $("#contact").addClass("fixed");
+      });
+
+      // Drop the dropwdown div down onto the screen
+      $("#dropdown").animate({top:"+=400"}, 2000);
+
+      $("#dropdown").addClass("fixed");
+
+      // Close the dropdown div
+      $("a").click(function(event) {
+        // Prevent the default functionality
+        event.preventDefault();
+        // Move the drop down back off the screen
+        $("#dropdown").css("top", "-150px");
+      });
+    });
+  </script>
+
+  <h3>Lorem Ipsum</h3>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula tortor odio, sit amet consequat ipsum iaculis quis. Etiam ultrices id leo nec egestas. Integer sagittis orci quis ligula luctus blandit. Suspendisse ullamcorper massa vel velit posuere cursus. Sed ullamcorper nec dolor in mollis. Aenean in odio id neque rhoncus aliquet eu non risus. Ut non diam pellentesque ex mattis ullamcorper vitae ac lorem. Vestibulum et risus sagittis, ornare est in, elementum tellus. Curabitur neque augue, porttitor vitae ipsum quis, fringilla lacinia urna. Ut pretium neque quis leo maximus, non blandit odio efficitur. Nullam suscipit posuere tortor eu ultrices. Praesent gravida tellus laoreet, venenatis dolor eu, sagittis ante. Duis consequat at turpis ut viverra.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula tortor odio, sit amet consequat ipsum iaculis quis. Etiam ultrices id leo nec egestas. Integer sagittis orci quis ligula luctus blandit. Suspendisse ullamcorper massa vel velit posuere cursus. Sed ullamcorper nec dolor in mollis. Aenean in odio id neque rhoncus aliquet eu non risus. Ut non diam pellentesque ex mattis ullamcorper vitae ac lorem. Vestibulum et risus sagittis, ornare est in, elementum tellus. Curabitur neque augue, porttitor vitae ipsum quis, fringilla lacinia urna. Ut pretium neque quis leo maximus, non blandit odio efficitur. Nullam suscipit posuere tortor eu ultrices. Praesent gravida tellus laoreet, venenatis dolor eu, sagittis ante. Duis consequat at turpis ut viverra.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula tortor odio, sit amet consequat ipsum iaculis quis. Etiam ultrices id leo nec egestas. Integer sagittis orci quis ligula luctus blandit. Suspendisse ullamcorper massa vel velit posuere cursus. Sed ullamcorper nec dolor in mollis. Aenean in odio id neque rhoncus aliquet eu non risus. Ut non diam pellentesque ex mattis ullamcorper vitae ac lorem. Vestibulum et risus sagittis, ornare est in, elementum tellus. Curabitur neque augue, porttitor vitae ipsum quis, fringilla lacinia urna. Ut pretium neque quis leo maximus, non blandit odio efficitur. Nullam suscipit posuere tortor eu ultrices. Praesent gravida tellus laoreet, venenatis dolor eu, sagittis ante. Duis consequat at turpis ut viverra.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula tortor odio, sit amet consequat ipsum iaculis quis. Etiam ultrices id leo nec egestas. Integer sagittis orci quis ligula luctus blandit. Suspendisse ullamcorper massa vel velit posuere cursus. Sed ullamcorper nec dolor in mollis. Aenean in odio id neque rhoncus aliquet eu non risus. Ut non diam pellentesque ex mattis ullamcorper vitae ac lorem. Vestibulum et risus sagittis, ornare est in, elementum tellus. Curabitur neque augue, porttitor vitae ipsum quis, fringilla lacinia urna. Ut pretium neque quis leo maximus, non blandit odio efficitur. Nullam suscipit posuere tortor eu ultrices. Praesent gravida tellus laoreet, venenatis dolor eu, sagittis ante. Duis consequat at turpis ut viverra.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula tortor odio, sit amet consequat ipsum iaculis quis. Etiam ultrices id leo nec egestas. Integer sagittis orci quis ligula luctus blandit. Suspendisse ullamcorper massa vel velit posuere cursus. Sed ullamcorper nec dolor in mollis. Aenean in odio id neque rhoncus aliquet eu non risus. Ut non diam pellentesque ex mattis ullamcorper vitae ac lorem. Vestibulum et risus sagittis, ornare est in, elementum tellus. Curabitur neque augue, porttitor vitae ipsum quis, fringilla lacinia urna. Ut pretium neque quis leo maximus, non blandit odio efficitur. Nullam suscipit posuere tortor eu ultrices. Praesent gravida tellus laoreet, venenatis dolor eu, sagittis ante. Duis consequat at turpis ut viverra.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula tortor odio, sit amet consequat ipsum iaculis quis. Etiam ultrices id leo nec egestas. Integer sagittis orci quis ligula luctus blandit. Suspendisse ullamcorper massa vel velit posuere cursus. Sed ullamcorper nec dolor in mollis. Aenean in odio id neque rhoncus aliquet eu non risus. Ut non diam pellentesque ex mattis ullamcorper vitae ac lorem. Vestibulum et risus sagittis, ornare est in, elementum tellus. Curabitur neque augue, porttitor vitae ipsum quis, fringilla lacinia urna. Ut pretium neque quis leo maximus, non blandit odio efficitur. Nullam suscipit posuere tortor eu ultrices. Praesent gravida tellus laoreet, venenatis dolor eu, sagittis ante. Duis consequat at turpis ut viverra.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula tortor odio, sit amet consequat ipsum iaculis quis. Etiam ultrices id leo nec egestas. Integer sagittis orci quis ligula luctus blandit. Suspendisse ullamcorper massa vel velit posuere cursus. Sed ullamcorper nec dolor in mollis. Aenean in odio id neque rhoncus aliquet eu non risus. Ut non diam pellentesque ex mattis ullamcorper vitae ac lorem. Vestibulum et risus sagittis, ornare est in, elementum tellus. Curabitur neque augue, porttitor vitae ipsum quis, fringilla lacinia urna. Ut pretium neque quis leo maximus, non blandit odio efficitur. Nullam suscipit posuere tortor eu ultrices. Praesent gravida tellus laoreet, venenatis dolor eu, sagittis ante. Duis consequat at turpis ut viverra.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula tortor odio, sit amet consequat ipsum iaculis quis. Etiam ultrices id leo nec egestas. Integer sagittis orci quis ligula luctus blandit. Suspendisse ullamcorper massa vel velit posuere cursus. Sed ullamcorper nec dolor in mollis. Aenean in odio id neque rhoncus aliquet eu non risus. Ut non diam pellentesque ex mattis ullamcorper vitae ac lorem. Vestibulum et risus sagittis, ornare est in, elementum tellus. Curabitur neque augue, porttitor vitae ipsum quis, fringilla lacinia urna. Ut pretium neque quis leo maximus, non blandit odio efficitur. Nullam suscipit posuere tortor eu ultrices. Praesent gravida tellus laoreet, venenatis dolor eu, sagittis ante. Duis consequat at turpis ut viverra.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula tortor odio, sit amet consequat ipsum iaculis quis. Etiam ultrices id leo nec egestas. Integer sagittis orci quis ligula luctus blandit. Suspendisse ullamcorper massa vel velit posuere cursus. Sed ullamcorper nec dolor in mollis. Aenean in odio id neque rhoncus aliquet eu non risus. Ut non diam pellentesque ex mattis ullamcorper vitae ac lorem. Vestibulum et risus sagittis, ornare est in, elementum tellus. Curabitur neque augue, porttitor vitae ipsum quis, fringilla lacinia urna. Ut pretium neque quis leo maximus, non blandit odio efficitur. Nullam suscipit posuere tortor eu ultrices. Praesent gravida tellus laoreet, venenatis dolor eu, sagittis ante. Duis consequat at turpis ut viverra.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula tortor odio, sit amet consequat ipsum iaculis quis. Etiam ultrices id leo nec egestas. Integer sagittis orci quis ligula luctus blandit. Suspendisse ullamcorper massa vel velit posuere cursus. Sed ullamcorper nec dolor in mollis. Aenean in odio id neque rhoncus aliquet eu non risus. Ut non diam pellentesque ex mattis ullamcorper vitae ac lorem. Vestibulum et risus sagittis, ornare est in, elementum tellus. Curabitur neque augue, porttitor vitae ipsum quis, fringilla lacinia urna. Ut pretium neque quis leo maximus, non blandit odio efficitur. Nullam suscipit posuere tortor eu ultrices. Praesent gravida tellus laoreet, venenatis dolor eu, sagittis ante. Duis consequat at turpis ut viverra.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula tortor odio, sit amet consequat ipsum iaculis quis. Etiam ultrices id leo nec egestas. Integer sagittis orci quis ligula luctus blandit. Suspendisse ullamcorper massa vel velit posuere cursus. Sed ullamcorper nec dolor in mollis. Aenean in odio id neque rhoncus aliquet eu non risus. Ut non diam pellentesque ex mattis ullamcorper vitae ac lorem. Vestibulum et risus sagittis, ornare est in, elementum tellus. Curabitur neque augue, porttitor vitae ipsum quis, fringilla lacinia urna. Ut pretium neque quis leo maximus, non blandit odio efficitur. Nullam suscipit posuere tortor eu ultrices. Praesent gravida tellus laoreet, venenatis dolor eu, sagittis ante. Duis consequat at turpis ut viverra.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula tortor odio, sit amet consequat ipsum iaculis quis. Etiam ultrices id leo nec egestas. Integer sagittis orci quis ligula luctus blandit. Suspendisse ullamcorper massa vel velit posuere cursus. Sed ullamcorper nec dolor in mollis. Aenean in odio id neque rhoncus aliquet eu non risus. Ut non diam pellentesque ex mattis ullamcorper vitae ac lorem. Vestibulum et risus sagittis, ornare est in, elementum tellus. Curabitur neque augue, porttitor vitae ipsum quis, fringilla lacinia urna. Ut pretium neque quis leo maximus, non blandit odio efficitur. Nullam suscipit posuere tortor eu ultrices. Praesent gravida tellus laoreet, venenatis dolor eu, sagittis ante. Duis consequat at turpis ut viverra.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula tortor odio, sit amet consequat ipsum iaculis quis. Etiam ultrices id leo nec egestas. Integer sagittis orci quis ligula luctus blandit. Suspendisse ullamcorper massa vel velit posuere cursus. Sed ullamcorper nec dolor in mollis. Aenean in odio id neque rhoncus aliquet eu non risus. Ut non diam pellentesque ex mattis ullamcorper vitae ac lorem. Vestibulum et risus sagittis, ornare est in, elementum tellus. Curabitur neque augue, porttitor vitae ipsum quis, fringilla lacinia urna. Ut pretium neque quis leo maximus, non blandit odio efficitur. Nullam suscipit posuere tortor eu ultrices. Praesent gravida tellus laoreet, venenatis dolor eu, sagittis ante. Duis consequat at turpis ut viverra.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula tortor odio, sit amet consequat ipsum iaculis quis. Etiam ultrices id leo nec egestas. Integer sagittis orci quis ligula luctus blandit. Suspendisse ullamcorper massa vel velit posuere cursus. Sed ullamcorper nec dolor in mollis. Aenean in odio id neque rhoncus aliquet eu non risus. Ut non diam pellentesque ex mattis ullamcorper vitae ac lorem. Vestibulum et risus sagittis, ornare est in, elementum tellus. Curabitur neque augue, porttitor vitae ipsum quis, fringilla lacinia urna. Ut pretium neque quis leo maximus, non blandit odio efficitur. Nullam suscipit posuere tortor eu ultrices. Praesent gravida tellus laoreet, venenatis dolor eu, sagittis ante. Duis consequat at turpis ut viverra.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vehicula tortor odio, sit amet consequat ipsum iaculis quis. Etiam ultrices id leo nec egestas. Integer sagittis orci quis ligula luctus blandit. Suspendisse ullamcorper massa vel velit posuere cursus. Sed ullamcorper nec dolor in mollis. Aenean in odio id neque rhoncus aliquet eu non risus. Ut non diam pellentesque ex mattis ullamcorper vitae ac lorem. Vestibulum et risus sagittis, ornare est in, elementum tellus. Curabitur neque augue, porttitor vitae ipsum quis, fringilla lacinia urna. Ut pretium neque quis leo maximus, non blandit odio efficitur. Nullam suscipit posuere tortor eu ultrices. Praesent gravida tellus laoreet, venenatis dolor eu, sagittis ante. Duis consequat at turpis ut viverra.</p>
+  <p>asdfasdf</p>
+  <p>asdfasdf</p>
+  <p>asdfasdf</p>
+  <p>asdfasdf</p>
+  <p>asdfasdf</p>
+  <p>asdfasdf</p>
+  <p>asdfasdf</p>
+  <p>asdfasdf</p>
+  <p>asdfasdf</p>
+  <p>asdfasdf</p>
+  <p>asdfasdf</p>
+  <p>asdfasdf</p>
+  <p>asdfasdf</p>
+  <p>asdfasdf</p>
+  <p>asdfasdf</p>
+
+</body>
+</html>
