@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+	<title>Assign06 - Responsive Design, Part 2</title>
+	<script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+	<style type="text/css">
+
+		@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,700;1,500&display=swap');
+
+		html {
+			height: 100%
+		}
+
+		/* Initial layout is designed for 1450px */
+		body {
+			/* background-image: url('images/bg.jpg'); */
+			margin: 0;
+			font-family: 'Poppins', sans-serif;
+		}
+
+		#top {
+			background-image: url('images/bg2.jpg');
+			background-position: 0px -490px;
+			background-repeat: no-repeat;
+			box-shadow: 0 2px 10px #000;
+			width: 100%;
+		}
+
+		#top-content {
+			background-color: rgba(0, 0, 0, 0.75);
+			height: 100%;
+			padding: 15px;
+			color: #fff;
+			text-align: center;
+		}
+
+		#middle {
+			position: absolute;
+			left: 250px;
+			margin-right: 700px;
+		}
+
+		#middle-content {
+			padding: 15px;
+		}
+
+		#left {
+			position: absolute;
+			width: 250px;
+		}
+
+		#left-content {
+			padding: 15px;
+		}
+
+		#left-content ul {
+			list-style-type: none;
+			padding: 0;
+		}
+
+		#left-content ul li {
+			cursor: pointer;
+			background-color:rgba(0, 0, 0, 0.95);
+			color: #fff;
+			margin: 15px;
+			transition: all 0.2s;
+		}
+
+		#left-content ul li:hover {
+			background-color:rgba(0, 0, 0, 0.85);
+			border-radius: 5px;
+		}
+
+		#left-content ul li a {
+			display: block;
+			padding: 15px;
+			text-decoration: none;
+			color: inherit;
+		}
+
+		#right {
+			position: absolute;
+			left: 760px;
+			width: 250px;
+		}
+
+		#right-content {
+			padding: 15px;
+		}
+
+		#right-content img {
+			width: 600px;
+			height: 500px;
+			object-fit: cover;
+			border-radius: 5px;
+			box-shadow: 0 1px 5px #000;
+		}
+
+		@media screen and (max-width: 1100px) {
+			#right-content img {
+				width: 300px;
+				height: 200px;
+			}
+			#middle {
+				margin-right: 350px;
+			}
+		}
+
+		@media screen and (max-width: 900px) {
+			#right {
+				display: none;
+			}
+			#middle {
+				margin-right: 0;
+			}
+			h2 {
+				font-size: 14pt;
+			}
+		}
+
+		@media screen and (max-width: 700px) {
+			h2 {
+				font-size: 12pt;
+			}
+		}
+
+		@media screen and (max-width: 500px) {
+			#left, #instructions {
+				display: none;
+			}
+			#middle {
+				left: 0;
+			}
+		}
+
+		@media screen and (max-width: 300px) {
+			#middle {
+				font-size: 10pt;
+			}
+		}
+	</style>
+</head>
+<body>
+	
+	<div id="top"></div>
+	<div id="left"></div>
+	<div id="middle"></div>
+	<div id="right"></div>
+
+	<div id="top-content">
+		<h1>Introduction to Web Development</h1>
+	</div>
+
+	<div id="left-content">
+		<h2>Client-Side</h2>
+		<ul>
+			<li><a href="https://en.wikipedia.org/wiki/HTML" target="_blank">HTML</a></li>
+			<li><a href="https://en.wikipedia.org/wiki/CSS" target="_blank">CSS</a></li>
+			<li><a href="https://en.wikipedia.org/wiki/JavaScript" target="_blank">JS</a><li>
+		</ul>
+		<h2>Server-Side</h2>
+		<ul>
+			<li><a href="https://en.wikipedia.org/wiki/PHP" target="_blank">PHP</a></li>
+			<li><a href="https://en.wikipedia.org/wiki/NodeJS" target="_blank">NodeJS</a></li>
+			<li><a href="https://en.wikipedia.org/wiki/Ruby_(programming_language)" target="_blank">Ruby</a></li>
+			<li><a href="https://en.wikipedia.org/wiki/Python_(programming_language)" target="_blank">Python</a></li>
+			<li><a href="https://en.wikipedia.org/wiki/Java_(programming_language)" target="_blank">Java</a></li>
+			<li><a href="https://en.wikipedia.org/wiki/Perl" target="_blank">Perl</a></li>
+			<li><a href="https://en.wikipedia.org/wiki/C_Sharp_(programming_language)" target="_blank">C#</a><li>
+		</ul>
+	</div>
+
+	<div id="middle-content">
+		<h2>What is web development?</h2>
+		<p>Web development is the process of creating a website or a web application.</p>
+		<p>There are many approaches to web development. However, any website or web application will always consist of the three following core technologies:</p>
+		<ul>
+			<li>HTML (Hypertext Markup Language)
+				<ul>
+					<li>Provides structure to the web page</li>
+				</ul>
+			</li>
+			<li>CSS (Cascading Style Sheet)
+				<ul>
+					<li>Provides presentation to the web page</li>
+				</ul>
+			</li>
+			<li>JS (JavaScript)
+				<ul>
+					<li>Provides interactivity to the web page</li>
+				</ul>
+			</li>
+		</ul>
+		<p>A website can be of two types:</p>
+		<ul>
+			<li>Static - Involves only HTML, CSS, and JS
+				<ul>
+					<li>An example of a static site is this one.</li>
+				</ul>
+			</li>
+			<li>Dynamic - Involves both client-side and server-side technologies
+				<ul>
+					<li>An example of a dynamic website would Youtube.</li>
+				</ul>
+			</li>
+		</ul>
+		<p>The architecture of a website or a web application can be divided into two layers of web development: </p>
+		<ul>
+			<li>Frontend Development
+				<ul>
+					<li>This is what the user sees. It can involve web design as well, but that can be a separate layer on its own.</li>
+					<li>Developed using client-side technologies such as HTML, CSS, and JS</li>
+				</ul>
+			</li>
+			<li>Backend Development
+				<ul>
+					<li>The user cannot see this directly as the frontend abstracts it. The user usually interacts with the backend when they submit a form or buy a product online.</li>
+					<li>Developed using back-end technologies such as PHP, NodeJS, and Java.</li>
+					<li>A database such as MySQL, MongoDB, or Firebase may be used to support the backend of a website or web application.</li>
+				</ul>
+			</li>
+		</ul>
+		<p>One can specialize in one specific web development layer or specialize in both layers, which is often called full-stack development.</p>
+		<p>There exists many web frameworks and libraries such as React, Vue, Angular, Flask, Django, and jQuery that can help speedup development by providing common structures (i.e. not developing from scratch).</p>
+		<p id="instructions">Click on the links on the left to learn more about the specific technology that can be found in web development. (The links will open a new tab with the Wikipedia page of the selected technology)</p>
+		<p>Learn more about web dev at <a href="https://developer.mozilla.org/en-US/" target="_blank">Mozilla MDN</a></p>
+	</div>
+
+	<!-- TODO: Right content -->
+	<div id="right-content">
+		<img src="images/1.jpg" alt="">
+		<img src="images/2.jpg" alt="">
+		<img src="images/3.jpg" alt="">
+		<img src="images/4.jpg" alt="">
+		<img src="images/5.jpg" alt="">
+		<img src="images/6.jpg" alt="">
+		<img src="images/7.jpg" alt="">
+		<img src="images/8.jpg" alt="">
+	</div>
+
+	<script text="text/javascript">
+		$(document).ready(function(e) {
+			$('#top').html($('#top-content'));
+			$('#left').html($('#left-content'));
+			$('#middle').html($('#middle-content'));
+			$('#right').html($('#right-content'));
+		});
+	</script>
+</body>
+</html>
